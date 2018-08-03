@@ -5,6 +5,7 @@ from analiz.models import Gene
 from .serializers import GeneSerializer
 
 
+
 class GeneAPIView(mixins.CreateModelMixin, generics.ListAPIView):
     lookup_field            = 'pk' 
     serializer_class        = GeneSerializer
