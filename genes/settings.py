@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'genes.wsgi.application'
 DATABASES = {
     'default':
         dj_database_url.config(
-        default='mysql://root:A256-s768vds@localhost:3306/genes'
+        default='mysql://root:A256-s768vds@localhost:3306/genes_dj'
         )
 }
 
@@ -154,5 +154,5 @@ REST_FRAMEWORK = {
 
 JWT_AUTH = { 
     'JWT_AUTH_HEADER_PREFIX': 'JWT',
-    'JWT_EXPIRATION_DELTA': timedelta(seconds=7200)
+    'JWT_EXPIRATION_DELTA': timedelta(hours=20)
 }

@@ -1,6 +1,6 @@
 from django.urls import path
 
-from rsid.views import GenesListCreateView, RSIDListCreateView, GroupsListCreateView, \
+from rsid.api.views import GenesListCreateView, RSIDListCreateView, GroupsListCreateView, \
     RiskListCreateView, GenesRUD, RSIDRUD, GroupsRUD, RiskRUD
 
 urlpatterns = [

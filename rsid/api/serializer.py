@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Genes, RSID, Groups, Risk
+from rsid.models import Genes, RSID, Groups, Risk
 
 
 class GenesSerializer(serializers.ModelSerializer):
@@ -30,4 +30,3 @@ class RiskSerializer(serializers.ModelSerializer):
         model = Risk
         fields = ('id', 'rsid', 'group_id', 'risk', )
         read_only_fields = ('id',)
-

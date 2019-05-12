@@ -26,7 +26,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name='index.html')),
-    path('data/', include('rsid.urls')),
+    path('data/', include('rsid.api.urls')),
     path('api/auth-jwt/', obtain_jwt_token),
     path('api/auth-jwt-refresh/', refresh_jwt_token),
     path('api/auth-jwt-verify/', verify_jwt_token),
