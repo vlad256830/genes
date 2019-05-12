@@ -1,0 +1,67 @@
+<mat-sidenav-container>
+    <mat-sidenav #sidenav role="navigation">
+        <mat-nav-list>
+            <a mat-list-item routerLink="/analiz">
+                <mat-icon class="icon">list_alt</mat-icon>
+                <span class="label">Analiz</span>
+            </a>
+            <a mat-list-item routerLink="/genes">
+                <mat-icon class="icon">gesture</mat-icon>
+                <span class="label">Genes</span>
+            </a>
+            <a mat-list-item routerLink="/rsid">
+                <mat-icon class="icon">description</mat-icon>
+                <span class="label">RSID</span>
+            </a>
+            <a mat-list-item routerLink="/groups">
+                <mat-icon class="icon">add_box</mat-icon>
+                <span class="label">Groups</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <div fxHide.gt-xs>
+                <button mat-icon-button (click)="sidenav.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+            </div>
+            <div>
+                <a routerLink="/">
+                    Analiz genes
+                </a>
+            </div>
+            <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+                <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+                    <li>
+                        <a routerLink="/analiz" routerLinkActive="activeLink">
+                            <mat-icon class="icon">list_alt</mat-icon>
+                            <span class="label">Analiz</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/genes" routerLinkActive="activeLink">
+                            <mat-icon class="icon">gesture</mat-icon>
+                            <span class="label">Genes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/rsid" routerLinkActive="activeLink">
+                            <mat-icon class="icon">description</mat-icon>
+                            <span class="label">RSID</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/groups" routerLinkActive="activeLink">
+                            <mat-icon class="icon">add_box</mat-icon>
+                            <span class="label">Groups</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </mat-toolbar>
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+    </mat-sidenav-content>
+</mat-sidenav-container>

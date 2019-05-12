@@ -53,6 +53,7 @@ local_settings.py
 migrations/
 /migrations/
 settings.py
+genes/settings.py
 *.csv
 
 # pyenv
