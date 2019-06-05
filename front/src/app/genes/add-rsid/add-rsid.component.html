@@ -1,0 +1,40 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<div mat-dialog-content class="example-container">
+  <mat-form-field>
+    <input matInput type="text" placeholder="RSID" [(ngModel)]="data.rsid" required maxlength="45"
+      minlength="2">
+    <mat-hint>RSID field must contain from 2 to 45 characters.</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Category" [(ngModel)]="data.category" required maxlength="45" minlength="2">
+    <mat-hint>Category field must contain from 2 to 45 characters.</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Minor Allele" [(ngModel)]="data.minor_allele" required maxlength="10">
+    <mat-hint>Minor Allele field must contain maximum 10 characters.</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Major Allele" [(ngModel)]="data.major_allele" required maxlength="10">
+    <mat-hint>Major Allele field must contain maximum 10 characters.</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Risk Allele" [(ngModel)]="data.risk_allele" required maxlength="10">
+    <mat-hint>Risk Allele field must contain maximum 10 characters.</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Links" [(ngModel)]="data.links">
+    <mat-hint>Links field can contain up to 255 characters.</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Text Minor" [(ngModel)]="data.txt_minor" cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Text Major" [(ngModel)]="data.txt_major" cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="onGetData()" cdkFocusInitial>Ok</button>
+</div>

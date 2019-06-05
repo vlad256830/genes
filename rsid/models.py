@@ -5,7 +5,7 @@ from django.db import models
 
 class Genes(models.Model):
     # id = models.AutoField(primary_key=True)
-    gene_name = models.CharField(max_length=45)
+    gene_name = models.CharField(max_length=45, unique=True)
     category = models.CharField(max_length=45)
     urls = models.CharField(max_length=255, blank=True, null=True)
     comments = models.TextField(blank=True, null=True)
@@ -20,7 +20,7 @@ class Genes(models.Model):
 
 
 class RSID(models.Model):
-    rsid = models.CharField(max_length=45)
+    rsid = models.CharField(max_length=45, unique=True)
     category = models.CharField(max_length=45)
     minor_allele = models.CharField(max_length=10)
     major_allele = models.CharField(max_length=10)
@@ -28,7 +28,7 @@ class RSID(models.Model):
     links = models.CharField(max_length=255, blank=True, null=True)
     txt_major = models.TextField(blank=True, null=True)
     txt_minor = models.TextField(blank=True, null=True)
-    gene_id = models.ForeignKey(Genes, on_delete=models.DO_NOTHING)
+    gene_id = models.ForeignKey(Genes, related_name='genes', on_delete=models.DO_NOTHING)
     
     def __str__(self):
         return self.rsid
@@ -40,7 +40,7 @@ class RSID(models.Model):
 
 class Groups(models.Model):
     id = models.AutoField(primary_key=True)
-    group = models.CharField(max_length=45)
+    group = models.CharField(max_length=45, unique=True)
 
     def __str__(self):
         return self.group
@@ -53,7 +53,7 @@ class Groups(models.Model):
 class Risk(models.Model):
     id = models.AutoField(primary_key=True)
     rsid = models.CharField(max_length=45)
-    group_id = models.ForeignKey(Groups, on_delete=models.DO_NOTHING)
+    group_id = models.ForeignKey(Groups, related_name='riskgenes', on_delete=models.DO_NOTHING)
     risk = models.CharField(max_length=10)
 
     def __str__(self):

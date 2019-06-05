@@ -1,3 +1,95 @@
-<p>
-  genes works!
-</p>
+<div class="btn-row" *ngIf="isAuth()">
+  <button mat-raised-button name="btn-add" id="btn-add" (click)="onAddGene()">Add Gene</button>
+  <button mat-raised-button name="btn-edit" id="btn-edit" (click)="onEditGene()">Edit</button>
+  <button mat-raised-button name="btn-rsid" id="btn-rsid" (click)="onAddRSIDGene()">Add RSID</button>
+</div>
+<mat-form-field class="btn-field">
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+
+</mat-form-field>
+<div class="table-container mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <!-- index Column -->
+    <ng-container matColumnDef="index">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element; let i = index;">{{i + 1}}</td>
+    </ng-container>
+
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+      <td mat-cell *matCellDef="let element"> {{ element.id}} </td>
+    </ng-container>
+
+    <!-- Gene_name Column -->
+    <ng-container matColumnDef="gene_name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Gene name </th>
+      <td mat-cell *matCellDef="let element"> {{ element.gene_name }} </td>
+    </ng-container>
+
+    <!-- Category Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Category</th>
+      <td mat-cell *matCellDef="let element"> {{ element.category }} </td>
+    </ng-container>
+
+    <!-- RSIDs Column -->
+    <ng-container matColumnDef="rsids">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> RSIDs</th>
+      <td mat-cell *matCellDef="let element" > {{ element.genes }} </td>
+    </ng-container>
+
+    <!-- Urls Column -->
+    <ng-container matColumnDef="urls">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Urls </th>
+      <td mat-cell *matCellDef="let element"> {{ element.urls}} </td>
+    </ng-container>
+
+    <!-- Comments Column -->
+    <ng-container matColumnDef="comments">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Comments </th>
+      <td mat-cell *matCellDef="let element"> {{ element.comments}} </td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+      <td mat-cell *matCellDef="let element"> {{ element.description }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns; let i = index;"
+      [ngClass]="{ 'highlight': selectedRowIndex == row.id}" (click)="onGetGene(row);">
+
+    </tr>
+  </table>
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 50]">
+  </mat-paginator>
+</div>
+<div fxLayout="row wrap" fxLayoutAlign="center">
+  <div class="cardList" fxFlex="100%">
+    <div class="rsid-container mat-elevation-z8 ">
+      <h1 mat-dialog-title class="text-th"> RSID's:</h1>
+      <span *ngFor="let item of selectedGene.rsids">
+        {{ item }};
+      </span>      
+    </div>
+  </div>
+</div>
+<div fxLayout="row wrap" fxLayoutGap="8px" fxLayoutAlign="flex-start">
+  <div class="cardList" fxFlex="0 1 calc(50% - 8px)">
+    <div class="text-container mat-elevation-z8 ">
+      <h1 mat-dialog-title class="text-th"> Comments:</h1>
+      {{ selectedGene.comments }}
+    </div>
+  </div>
+  <div class="cardList" fxFlex="0 1 calc(50% )">
+    <div class="text-container mat-elevation-z8 ">
+      <h1 mat-dialog-title class="text-th"> Description:</h1>
+      {{ selectedGene.description }}
+
+    </div>
+  </div>
+
+</div>

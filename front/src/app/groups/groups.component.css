@@ -1,0 +1,60 @@
+.btn-field {
+  margin-left : 20px;
+  margin-right: 20px;
+}
+
+.btn-row {
+  margin-left : 20px;
+  margin-right: 20px;
+  margin-top: 4px;
+}
+
+button {
+  margin-right: 8px;
+}
+
+.table-container {
+  height: 328px;
+  overflow: auto;
+  margin-left : 20px;
+  margin-right: 20px;
+}
+
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+  /* Column Widths */
+.mat-column-number,
+.mat-column-state {
+  max-width: 64px;
+  }
+
+.mat-column-created {
+  max-width: 64px;
+  }
+
+th {
+  font-size: large;  
+}
+
+.mat-header-row {
+  height: 36px !important;
+}
+
+.mat-row {
+  height: auto;
+  }
+  
+.mat-cell {
+  padding: 3px 3px 3px 0;
+  }
+
+.highlight{
+  background: rgb(184, 235, 184) !important;
+}
+

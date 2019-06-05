@@ -1,0 +1,28 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<div mat-dialog-content class="example-container">
+  <mat-form-field>
+    <input matInput type="text" placeholder="Gene name" [(ngModel)]="data.gene_name" required maxlength="45"
+      minlength="2">
+    <mat-hint>Gene name field must contain from 2 to 45 characters.</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Category" [(ngModel)]="data.category" required maxlength="45" minlength="2">
+    <mat-hint>Category field must contain from 2 to 45 characters.</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Urls" [(ngModel)]="data.urls">
+    <mat-hint>Urls field can contain up to 255 characters.</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Comments" [(ngModel)]="data.comments" cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Description" [(ngModel)]="data.description" cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="2" cdkAutosizeMaxRows="5"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="onGetData()" cdkFocusInitial>Ok</button>
+</div>

@@ -1,10 +1,6 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav role="navigation">
-        <mat-nav-list>
-            <a mat-list-item routerLink="/analiz">
-                <mat-icon class="icon">list_alt</mat-icon>
-                <span class="label">Analiz</span>
-            </a>
+        <mat-nav-list>            
             <a mat-list-item routerLink="/genes">
                 <mat-icon class="icon">gesture</mat-icon>
                 <span class="label">Genes</span>
@@ -17,6 +13,10 @@
                 <mat-icon class="icon">add_box</mat-icon>
                 <span class="label">Groups</span>
             </a>
+            <a mat-list-item routerLink="/analiz">
+                <mat-icon class="icon">list_alt</mat-icon>
+                <span class="label">Analiz</span>
+            </a>
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
@@ -26,19 +26,9 @@
                     <mat-icon>menu</mat-icon>
                 </button>
             </div>
-            <div>
-                <a routerLink="/">
-                    Analiz genes
-                </a>
-            </div>
-            <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
-                <ul fxLayout fxLayoutGap="20px" class="navigation-items">
-                    <li>
-                        <a routerLink="/analiz" routerLinkActive="activeLink">
-                            <mat-icon class="icon">list_alt</mat-icon>
-                            <span class="label">Analiz</span>
-                        </a>
-                    </li>
+            
+            <div fxFlex fxLayout fxLayoutAlign="center" fxHide.xs>
+                <ul fxLayout fxLayoutGap="20px" class="navigation-items">                   
                     <li>
                         <a routerLink="/genes" routerLinkActive="activeLink">
                             <mat-icon class="icon">gesture</mat-icon>
@@ -52,11 +42,33 @@
                         </a>
                     </li>
                     <li>
-                        <a routerLink="/groups" routerLinkActive="activeLink">
+                        <a routerLink="/groups" routerLinkActive="activeLink" *ngIf="isAuth()">
                             <mat-icon class="icon">add_box</mat-icon>
                             <span class="label">Groups</span>
                         </a>
                     </li>
+                    <li>
+                        <a routerLink="/analiz" routerLinkActive="activeLink" *ngIf="isAuth()">
+                            <mat-icon class="icon">list_alt</mat-icon>
+                            <span class="label">Analiz</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
+                <ul fxLayout fxLayoutGap="20px" class="navigation-items">
+                    <li>
+                        <a routerLink="/login" routerLinkActive="activeLink" *ngIf="!isAuth()">
+                            <mat-icon class="icon">account_box</mat-icon>
+                            <span class="label">LogIn</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/logout" routerLinkActive="activeLink" *ngIf="isAuth()">
+                            <mat-icon class="icon">exit_to_app</mat-icon>
+                            <span class="label">LogOut</span>
+                        </a>
+                    </li>                    
                 </ul>
             </div>
         </mat-toolbar>
