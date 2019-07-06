@@ -2,7 +2,8 @@ from django.urls import path
 
 from rsid.api.views import GenesListCreateView, RSIDListCreateView, GroupsListCreateView, \
     RiskListCreateView, GenesRUD, RSIDRUD, GroupsRUD, RiskRUD, RSIDGeneListView,\
-    GenesRSIDSListView, GroupsRiskListView
+    GenesRSIDSListView, GroupsRiskListView, FileUploadView, AppendNewGroup, GeneDataView,\
+    ClientDataView, AnalizDataView
 
 urlpatterns = [
     path('genes/', GenesListCreateView.as_view()),
@@ -16,4 +17,10 @@ urlpatterns = [
     path('groups/edit/<int:pk>/', GroupsRUD.as_view()),
     path('risk/', RiskListCreateView.as_view()),
     path('risk/edit/<int:pk>/', RiskRUD.as_view()),
+    path('newcsvgroup/', FileUploadView.as_view()),
+    path('appendnewgroup/', AppendNewGroup.as_view()), 
+    path('genedata/', GeneDataView.as_view()),
+    # path('addgenedatatotable/', ClientDataView.as_view()),
+    path('analiz/', AnalizDataView.as_view()),
+
 ]

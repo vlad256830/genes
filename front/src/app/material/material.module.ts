@@ -17,10 +17,11 @@ import {
 } from '@angular/material';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatInputModule } from '@angular/material/input';
-import {MatSelectModule} from '@angular/material/select';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressBarModule
   ],
   exports: [
     FlexLayoutModule,
@@ -66,7 +68,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressBarModule
   ],
 })
 export class MaterialModule { }

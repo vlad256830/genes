@@ -1,3 +1,58 @@
-<p>
-  analiz works!
-</p>
+<div fxLayout="row wrap" fxLayoutGap="8px" fxLayoutAlign="flex-start" style="margin-top: 5px">
+  <mat-form-field class="btn-field">
+    <mat-label>Selected group</mat-label>
+    <mat-select [(ngModel)]="selectedGroup" name="group">
+      <mat-option *ngFor="let group of arrayGroups" [value]="group.id">
+        {{group.group}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="btn-field">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  <div class="btn-row">
+    <button mat-raised-button name="btn-add-genedata" id="btn-add-genedata" (click)="onAddGeneData()">
+      Analiz Gene Data
+    </button>
+    <button mat-raised-button name="btn-stop" id="btn-stop" (click)="onStop()">
+      Stop
+    </button>
+  </div>
+</div>
+
+<div>
+  <mat-progress-bar [mode]="progressMode" [value]="progressValue"></mat-progress-bar>
+</div>
+
+<div class="container">
+  <div class="row" *ngIf="enableAnaliz">
+    <div class="col-md-12 text-center">
+      <h2>Result analysis</h2>
+    </div>
+    <div class="container">
+      <table class="table table-bordered" id="infTable">
+        <thead>
+          <tr class="table-primary">
+            <th class="text-center">№</th>
+            <th class="text-center">Group</th>
+            <th class="text-center">Gene</th>
+            <th class="text-center">RSID</th>
+            <th class="text-center">Risk Allele</th>
+            <th class="text-center">Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let element of dataSourceAnaliz.data; index as i"
+            [ngClass]="{ 'one-error': element.col === 1, 'too-error': element.col === 2 }">
+            <td class="text-center">{{ i + 1 }}</td>
+            <td class="text-center">{{ element.group }}</td>
+            <td class="text-center">{{ element.gene_name }}</td>
+            <td class="text-center">{{ element.rsid }}</td>
+            <td class="text-center">{{ element.risk }}</td>
+            <td class="text-center">{{ element.res }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

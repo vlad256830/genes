@@ -160,7 +160,6 @@ export class RsidComponent implements OnInit {
               });
         }
       });
-
     }
   }
 

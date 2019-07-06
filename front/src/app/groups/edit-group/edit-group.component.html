@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<div mat-dialog-content class="example-container">
+  <mat-form-field>
+    <input matInput type="text" placeholder="RSID" [(ngModel)]="data.rsid" required maxlength="45"
+      minlength="2">
+    <mat-hint>RSID field must contain from 2 to 45 characters.</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" placeholder="Gene name" [(ngModel)]="data.gene_name" required maxlength="45"
+      minlength="2">
+    <mat-hint>Gene name field must contain from 2 to 45 characters.</mat-hint>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Risk Allele" [(ngModel)]="data.risk" required maxlength="10">
+    <mat-hint>Risk Allele field must contain maximum 10 characters.</mat-hint>
+  </mat-form-field> 
+  <mat-form-field *ngIf="enableId">
+    <input type="number" matInput placeholder="Group Id" [(ngModel)]="data.group_id" required>
+    <mat-hint>Id risk group.</mat-hint>
+  </mat-form-field> 
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button (click)="onGetData()" cdkFocusInitial>Ok</button>
+</div>

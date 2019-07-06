@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<div mat-dialog-content class="example-container">
+  <mat-form-field>
+    <input matInput type="text" placeholder="Group Name" [(ngModel)]="data.group" required maxlength="45"
+      minlength="2">
+    <mat-hint>Group Name field must contain from 2 to 45 characters.</mat-hint>
+  </mat-form-field>
+  <mat-form-field *ngIf="enableId">
+    <input type="number" matInput placeholder="Group Id" [(ngModel)]="data.group_id" required>
+    <mat-hint>Id risk group.</mat-hint>
+  </mat-form-field> 
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button (click)="onGetData()" cdkFocusInitial>Ok</button>
+</div>
+

@@ -1,18 +1,25 @@
-<div fxLayout="row wrap" fxLayoutGap="8px" fxLayoutAlign="flex-start">
-<mat-form-field class="btn-field">
-  <mat-label>Selected group</mat-label>
-  <mat-select [(ngModel)]="selectedGroup" name="group" (selectionChange)="onCloseSelectGroup($event)">
-    <mat-option *ngFor="let group of arrayGroups" [value]="group.id">
-      {{group.group}}
-    </mat-option>
-  </mat-select>
-
-</mat-form-field>
+<div fxLayout="row wrap" fxLayoutGap="8px" fxLayoutAlign="flex-start" style="margin-top: 5px">
+  <mat-form-field class="btn-field">
+    <mat-label>Selected group</mat-label>
+    <mat-select [(ngModel)]="selectedGroup" name="group" (selectionChange)="onCloseSelectGroup($event)">
+      <mat-option *ngFor="let group of arrayGroups" [value]="group.id">
+        {{group.group}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="btn-row">
+      <button mat-raised-button name="btn-add" id="btn-add" (click)="onLoadGroupFromFile()">Load from File</button>
+      <button mat-raised-button name="btn-add" id="btn-add" (click)="onAddGroup()">Add Group</button>
+      <button mat-raised-button name="btn-add" id="btn-add" (click)="onDeleteGroup()">Delete Group</button>
+   </div>
+  <mat-form-field class="btn-field">
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+  <div class="btn-row">    
+    <button mat-raised-button name="btn-add" id="btn-add" (click)="onAddRiskRsid()">Add RSID</button>
+    <button mat-raised-button name="btn-edit" id="btn-edit" (click)="onEditRiskRsid()">Edit RSID</button>
+  </div>
 </div>
-<mat-form-field class="btn-field">
-  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-
-</mat-form-field>
 <div class="table-container mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
@@ -28,9 +35,15 @@
       <td mat-cell *matCellDef="let element"> {{ element.id}} </td>
     </ng-container>
 
+    <!-- Gene Column -->
+    <ng-container matColumnDef="gene_name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Gene name </th>
+      <td mat-cell *matCellDef="let element"> {{ element.gene_name }} </td>
+    </ng-container>
+
     <!-- Rsid Column -->
     <ng-container matColumnDef="rsid">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> rsid </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> RSIF </th>
       <td mat-cell *matCellDef="let element"> {{ element.rsid }} </td>
     </ng-container>
 
@@ -43,7 +56,7 @@
     <!-- group_id Column -->
     <ng-container matColumnDef="group_id">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Group_id</th>
-      <td mat-cell *matCellDef="let element" > {{ element.group_id }} </td>
+      <td mat-cell *matCellDef="let element"> {{ element.group_id }} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>

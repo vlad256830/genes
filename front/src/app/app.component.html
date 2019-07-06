@@ -32,25 +32,25 @@
                     <li>
                         <a routerLink="/genes" routerLinkActive="activeLink">
                             <mat-icon class="icon">gesture</mat-icon>
-                            <span class="label">Genes</span>
+                            <span class="label ml-1">Genes</span>
                         </a>
                     </li>
                     <li>
                         <a routerLink="/rsid" routerLinkActive="activeLink">
                             <mat-icon class="icon">description</mat-icon>
-                            <span class="label">RSID</span>
+                            <span class="label ml-1">RSID</span>
                         </a>
                     </li>
                     <li>
                         <a routerLink="/groups" routerLinkActive="activeLink" *ngIf="isAuth()">
                             <mat-icon class="icon">add_box</mat-icon>
-                            <span class="label">Groups</span>
+                            <span class="label ml-1">Groups</span>
                         </a>
                     </li>
                     <li>
                         <a routerLink="/analiz" routerLinkActive="activeLink" *ngIf="isAuth()">
                             <mat-icon class="icon">list_alt</mat-icon>
-                            <span class="label">Analiz</span>
+                            <span class="label ml-1">Analiz</span>
                         </a>
                     </li>
                 </ul>
@@ -60,13 +60,13 @@
                     <li>
                         <a routerLink="/login" routerLinkActive="activeLink" *ngIf="!isAuth()">
                             <mat-icon class="icon">account_box</mat-icon>
-                            <span class="label">LogIn</span>
+                            <span class="label ml-1">LogIn</span>
                         </a>
                     </li>
                     <li>
                         <a routerLink="/logout" routerLinkActive="activeLink" *ngIf="isAuth()">
                             <mat-icon class="icon">exit_to_app</mat-icon>
-                            <span class="label">LogOut</span>
+                            <span class="label ml-1">LogOut</span>
                         </a>
                     </li>                    
                 </ul>

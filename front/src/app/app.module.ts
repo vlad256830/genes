@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './material/material.module';
@@ -21,6 +21,10 @@ import { AddGeneComponent } from './genes/add-gene/add-gene.component';
 import { AddRsidComponent } from './genes/add-rsid/add-rsid.component';
 import { EditRsidComponent } from './rsid/edit-rsid/edit-rsid.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { EditGroupComponent } from './groups/edit-group/edit-group.component';
+import { AddGroupComponent } from './groups/add-group/add-group.component';
+import { LoadGroupComponent } from './groups/load-group/load-group.component';
+import { NewGeneDataComponent } from './analiz/new-gene-data/new-gene-data.component';
 
 
 
@@ -36,11 +40,16 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     AddGeneComponent,
     AddRsidComponent,
     EditRsidComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    EditGroupComponent,
+    AddGroupComponent,
+    LoadGroupComponent,
+    NewGeneDataComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -53,7 +62,11 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     AddGeneComponent,
     AddRsidComponent,
     EditRsidComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    EditGroupComponent,
+    AddGroupComponent,
+    LoadGroupComponent,
+    NewGeneDataComponent
   ]
 })
 export class AppModule { }

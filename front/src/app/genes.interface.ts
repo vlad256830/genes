@@ -43,9 +43,17 @@ export interface NewRsid {
   gene_id: number;
 }
 
-export interface Risk {
+export interface RiskGroups {
   id: number;
   rsid: string;
+  gene_name: string;
+  group_id: number;
+  risk: string;
+}
+
+export interface CreateRisk {
+  rsid: string;
+  gene_name: string;
   group_id: number;
   risk: string;
 }
@@ -53,4 +61,10 @@ export interface Risk {
 export interface Group {
   id: number;
   group: string;
+}
+
+export interface GeneData {
+  id: number;
+  genedata: string;
+  created: Date;
 }

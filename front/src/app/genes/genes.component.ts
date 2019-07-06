@@ -1,6 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
-import { NgForm } from '@angular/forms';
 import { MatSort, MatTableDataSource, MatPaginator, MatDialog } from '@angular/material';
 
 import { DataService } from '../data.service';

@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>{{ title }}</h1>
+<div class="example-container">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <input type="file" class="form-control-file" #file name="datafile" (change)="onChangeDataFileName(file.files)" />
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button (click)="onGetData()" cdkFocusInitial>Ok</button>
+</div>
