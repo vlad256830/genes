@@ -52,6 +52,7 @@ pip-delete-this-directory.txt
 migrations/
 /migrations/
 *.csv
+media/
 
 # pyenv
 .python-version
