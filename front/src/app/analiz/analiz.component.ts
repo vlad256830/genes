@@ -80,11 +80,11 @@ export class AnalizComponent implements OnInit, OnDestroy {
             // console.log('fname', id);
             this.dataService.startAnaliz(id, this.selectedGroup)
               .subscribe(res => {
-                console.log('task_id', res.rezult.task_id);
+                // console.log('task_id', res.rezult.task_id);
                 this.task_id = res.rezult.task_id;
                 this.intervalPost = setInterval(() => {
                   this.onStatusAnaliz();
-                }, 1000);
+                }, 2000);
               },
                 errr => {
                   const errors = errr['error'];
@@ -105,9 +105,9 @@ export class AnalizComponent implements OnInit, OnDestroy {
   onStatusAnaliz() {
     this.dataService.statusAnaliz(this.task_id)
       .subscribe(status => {
-        console.log(status);
+        // console.log(status);
         if (status.state === 'SUCCESS') {
-          this.onStop();
+          clearInterval(this.intervalPost);
           this.progressMode = 'determinate';
           this.enableAnaliz = true;
           this.dataSourceAnaliz.data = status.result.data;
@@ -120,10 +120,5 @@ export class AnalizComponent implements OnInit, OnDestroy {
           this.errorsService.openSnackBar(errors);
         });
   }
-
-  onStop() {
-    clearInterval(this.intervalPost);
-  }
-
 
 }

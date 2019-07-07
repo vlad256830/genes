@@ -240,10 +240,10 @@ export class GroupsComponent implements OnInit {
         if (result) {
           this.dataService.uploadCSVRiskGroup(result.data)
             .subscribe(data => {
-              console.log('fname', data);
+              // console.log('fname', data);
               this.dataService.appendFileCSVRiskGroup(data.id)
               .subscribe(res => {
-                console.log(res);
+                // console.log(res);
                 this.onGetGroups();
               },
               error => {

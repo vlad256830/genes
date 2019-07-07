@@ -12,6 +12,7 @@ import { ErrorsService } from 'src/app/errors.service';
 })
 export class LoginComponent implements OnInit {
   public user: any;
+  showSpinner = false;
   constructor(public authService: AuthService, private router: Router, private errorsService: ErrorsService) { }
 
   ngOnInit() {
@@ -21,10 +22,12 @@ export class LoginComponent implements OnInit {
     };
   }
   login() {
+    this.showSpinner = true;
     this.authService.login({'username': this.user.username, 'password': this.user.password})
     .subscribe(
       data => {
         this.authService.updateData(data['token']);
+        this.showSpinner = false;
         this.router.navigate(['/analiz']);
       },
       err => {
